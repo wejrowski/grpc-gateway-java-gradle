@@ -15,3 +15,5 @@ Run gradle Task other/generateProto
     It created
         - Dummy.java, DummyMessage.java and DummyMessageOrBuilder.java
     Gradle however created a grpc dir with a ```DummyServiceGrpc.java``` file
+
+Create Java server that implements a io.grpc.Server (GreetingServer)
