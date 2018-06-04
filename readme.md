@@ -17,3 +17,6 @@ Run gradle Task other/generateProto
     Gradle however created a grpc dir with a ```DummyServiceGrpc.java``` file
 
 Create Java server that implements a io.grpc.Server (GreetingServer)
+Create Client (make sure you run gw generateProto before)
+Run Server, run Client, watch hello message result
+
