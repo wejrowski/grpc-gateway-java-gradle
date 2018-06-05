@@ -39,7 +39,6 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 
 Generate go server (pb.go)
-- TODO: wait, entry/gw pointing to go server?....
 
 ```
 protoc -I/usr/local/include -I. \
@@ -81,5 +80,5 @@ desc = \"transport: Error while dialing dial tcp [::1]:9090: connect: connection
 NOTE: GreetingServer.java sets the port for the gRPC server ServerBuilder.forPort(50051)
 9090
 entry.go sets ```echoEndpoint = flag.String("echo_endpoint", "localhost:9090", "endpoint of YourService")```
-That needs to be changed to gRPC server port ```50051```
+That was changed to gRPC server port ```50051``` (from the grpc-gateway repo)
 
