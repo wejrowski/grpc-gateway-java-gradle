@@ -14,9 +14,72 @@ Run gradle Task other/generateProto
     to be exactly the same as running ```protoc --proto_path=src/main/proto --java_out=build src/main/proto/dummy.proto```
     It created
         - Dummy.java, DummyMessage.java and DummyMessageOrBuilder.java
-    Gradle however created a grpc dir with a ```DummyServiceGrpc.java``` file
+- **Additionally creates a grpc dir with a ```DummyServiceGrpc.java/GreetServiceGrpc.java``` file.** 
+  - This has a grpc service class with stubs
+    (This is one of the missing pieces the command doesn't run. It *might* be connected to.... [what was the project?])
+    
+    
 
-Create Java server that implements a io.grpc.Server (GreetingServer)
-Create Client (make sure you run gw generateProto before)
-Run Server, run Client, watch hello message result
+Create Java server (GreetServiceImpl.java) that implements a io.grpc.Server (GreetingServer.java)
+- Create Client (make sure you run gw generateProto before)
+- Run Server, run Client, watch hello message result
+
+
+## Creating the gateway
+
+Install go: ```brew install go```, ```export PATH="$PATH:$GOPATH/bin"```
+
+
+Install go dependencies
+```
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
+
+
+Generate go server (pb.go)
+- TODO: wait, entry/gw pointing to go server?....
+
+```
+protoc -I/usr/local/include -I. \
+  -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --plugin=protoc-gen-go=$GOPATH/bin/protoc-gen-go \
+  --go_out=plugins=grpc:. \
+  ./src/main/proto/greet/greet.proto
+```
+
+Create the proxy pb.gw.go file:
+
+```
+protoc -I/usr/local/include -I. \
+  -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --plugin=protoc-gen-grpc-gateway=$GOPATH/bin/protoc-gen-grpc-gateway  \
+  --grpc-gateway_out=logtostderr=true:. \
+  ./src/main/proto/greet/greet.proto
+```
+
+// Generate swagger (not needed for proxy)
+```
+protoc -I/usr/local/include -I. \
+  -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --plugin=protoc-gen-swagger=$GOPATH/bin/protoc-gen-go \
+  --swagger_out=logtostderr=true:. \
+  ./src/main/proto/greet/greet.proto
+```
+
+Run server (GreetingServer.java)
+Run go ```go run entry.go```
+- asks to allow connections
+curl -X POST -k http://localhost:8080/v1/example/echo
+{"error":"all SubConns are in TransientFailure, latest connection error: connection error:
+desc = \"transport: Error while dialing dial tcp [::1]:9090: connect: connection refused\"","code":14}%
+
+NOTE: GreetingServer.java sets the port for the gRPC server ServerBuilder.forPort(50051)
+9090
+entry.go sets ```echoEndpoint = flag.String("echo_endpoint", "localhost:9090", "endpoint of YourService")```
+That needs to be changed to gRPC server port ```50051```
 
