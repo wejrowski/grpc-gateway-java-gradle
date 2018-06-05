@@ -38,13 +38,14 @@ public final class Greet {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021greet/greet.proto\022\005greet\"1\n\010Greeting\022\022" +
-      "\n\nfirst_name\030\001 \001(\t\022\021\n\tlast_name\030\002 \001(\t\"1\n" +
-      "\014GreetRequest\022!\n\010greeting\030\001 \001(\0132\017.greet." +
-      "Greeting\"\037\n\rGreetResponse\022\016\n\006result\030\001 \001(" +
-      "\t2D\n\014GreetService\0224\n\005Greet\022\023.greet.Greet" +
-      "Request\032\024.greet.GreetResponse\"\000B\023\n\017com.p" +
-      "roto.greetP\001b\006proto3"
+      "\n\021greet/greet.proto\022\005greet\032\021annotations." +
+      "proto\"1\n\010Greeting\022\022\n\nfirst_name\030\001 \001(\t\022\021\n" +
+      "\tlast_name\030\002 \001(\t\"1\n\014GreetRequest\022!\n\010gree" +
+      "ting\030\001 \001(\0132\017.greet.Greeting\"\037\n\rGreetResp" +
+      "onse\022\016\n\006result\030\001 \001(\t2^\n\014GreetService\022N\n\005" +
+      "Greet\022\023.greet.GreetRequest\032\024.greet.Greet" +
+      "Response\"\032\202\323\344\223\002\024\"\017v1/example/echo:\001*B\023\n\017" +
+      "com.proto.greetP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -57,6 +58,7 @@ public final class Greet {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.api.AnnotationsProto.getDescriptor(),
         }, assigner);
     internal_static_greet_Greeting_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -76,6 +78,12 @@ public final class Greet {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greet_GreetResponse_descriptor,
         new java.lang.String[] { "Result", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(com.google.api.AnnotationsProto.http);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

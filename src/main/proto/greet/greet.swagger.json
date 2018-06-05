@@ -1,0 +1,75 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "src/main/proto/greet/greet.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/example/echo": {
+      "post": {
+        "summary": "Unary API",
+        "operationId": "Greet",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/greetGreetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/greetGreetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GreetService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "greetGreetRequest": {
+      "type": "object",
+      "properties": {
+        "greeting": {
+          "$ref": "#/definitions/greetGreeting"
+        }
+      }
+    },
+    "greetGreetResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string"
+        }
+      }
+    },
+    "greetGreeting": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
