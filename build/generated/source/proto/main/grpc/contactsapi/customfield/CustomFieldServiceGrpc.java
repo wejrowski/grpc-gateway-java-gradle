@@ -29,32 +29,32 @@ public final class CustomFieldServiceGrpc {
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getCreateCustomFieldMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  public static final io.grpc.MethodDescriptor<contactsapi.customfield.CreateCustomFieldRequest,
       contactsapi.customfield.CustomField> METHOD_CREATE_CUSTOM_FIELD = getCreateCustomFieldMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.CreateCustomFieldRequest,
       contactsapi.customfield.CustomField> getCreateCustomFieldMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  public static io.grpc.MethodDescriptor<contactsapi.customfield.CreateCustomFieldRequest,
       contactsapi.customfield.CustomField> getCreateCustomFieldMethod() {
     return getCreateCustomFieldMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  private static io.grpc.MethodDescriptor<contactsapi.customfield.CreateCustomFieldRequest,
       contactsapi.customfield.CustomField> getCreateCustomFieldMethodHelper() {
-    io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest, contactsapi.customfield.CustomField> getCreateCustomFieldMethod;
+    io.grpc.MethodDescriptor<contactsapi.customfield.CreateCustomFieldRequest, contactsapi.customfield.CustomField> getCreateCustomFieldMethod;
     if ((getCreateCustomFieldMethod = CustomFieldServiceGrpc.getCreateCustomFieldMethod) == null) {
       synchronized (CustomFieldServiceGrpc.class) {
         if ((getCreateCustomFieldMethod = CustomFieldServiceGrpc.getCreateCustomFieldMethod) == null) {
           CustomFieldServiceGrpc.getCreateCustomFieldMethod = getCreateCustomFieldMethod = 
-              io.grpc.MethodDescriptor.<contactsapi.customfield.CustomFieldRequest, contactsapi.customfield.CustomField>newBuilder()
+              io.grpc.MethodDescriptor.<contactsapi.customfield.CreateCustomFieldRequest, contactsapi.customfield.CustomField>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "contactsapi.customfield.CustomFieldService", "CreateCustomField"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  contactsapi.customfield.CustomFieldRequest.getDefaultInstance()))
+                  contactsapi.customfield.CreateCustomFieldRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   contactsapi.customfield.CustomField.getDefaultInstance()))
                   .setSchemaDescriptor(new CustomFieldServiceMethodDescriptorSupplier("CreateCustomField"))
@@ -65,70 +65,70 @@ public final class CustomFieldServiceGrpc {
      return getCreateCustomFieldMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getListCustomFieldMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
-      contactsapi.customfield.CustomField> METHOD_LIST_CUSTOM_FIELD = getListCustomFieldMethodHelper();
+  @java.lang.Deprecated // Use {@link #getListCustomFieldsMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<contactsapi.customfield.ListCustomFieldsRequest,
+      contactsapi.customfield.ListCustomFieldsResponse> METHOD_LIST_CUSTOM_FIELDS = getListCustomFieldsMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
-      contactsapi.customfield.CustomField> getListCustomFieldMethod;
+  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.ListCustomFieldsRequest,
+      contactsapi.customfield.ListCustomFieldsResponse> getListCustomFieldsMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
-      contactsapi.customfield.CustomField> getListCustomFieldMethod() {
-    return getListCustomFieldMethodHelper();
+  public static io.grpc.MethodDescriptor<contactsapi.customfield.ListCustomFieldsRequest,
+      contactsapi.customfield.ListCustomFieldsResponse> getListCustomFieldsMethod() {
+    return getListCustomFieldsMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
-      contactsapi.customfield.CustomField> getListCustomFieldMethodHelper() {
-    io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest, contactsapi.customfield.CustomField> getListCustomFieldMethod;
-    if ((getListCustomFieldMethod = CustomFieldServiceGrpc.getListCustomFieldMethod) == null) {
+  private static io.grpc.MethodDescriptor<contactsapi.customfield.ListCustomFieldsRequest,
+      contactsapi.customfield.ListCustomFieldsResponse> getListCustomFieldsMethodHelper() {
+    io.grpc.MethodDescriptor<contactsapi.customfield.ListCustomFieldsRequest, contactsapi.customfield.ListCustomFieldsResponse> getListCustomFieldsMethod;
+    if ((getListCustomFieldsMethod = CustomFieldServiceGrpc.getListCustomFieldsMethod) == null) {
       synchronized (CustomFieldServiceGrpc.class) {
-        if ((getListCustomFieldMethod = CustomFieldServiceGrpc.getListCustomFieldMethod) == null) {
-          CustomFieldServiceGrpc.getListCustomFieldMethod = getListCustomFieldMethod = 
-              io.grpc.MethodDescriptor.<contactsapi.customfield.CustomFieldRequest, contactsapi.customfield.CustomField>newBuilder()
+        if ((getListCustomFieldsMethod = CustomFieldServiceGrpc.getListCustomFieldsMethod) == null) {
+          CustomFieldServiceGrpc.getListCustomFieldsMethod = getListCustomFieldsMethod = 
+              io.grpc.MethodDescriptor.<contactsapi.customfield.ListCustomFieldsRequest, contactsapi.customfield.ListCustomFieldsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "contactsapi.customfield.CustomFieldService", "ListCustomField"))
+                  "contactsapi.customfield.CustomFieldService", "ListCustomFields"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  contactsapi.customfield.CustomFieldRequest.getDefaultInstance()))
+                  contactsapi.customfield.ListCustomFieldsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  contactsapi.customfield.CustomField.getDefaultInstance()))
-                  .setSchemaDescriptor(new CustomFieldServiceMethodDescriptorSupplier("ListCustomField"))
+                  contactsapi.customfield.ListCustomFieldsResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new CustomFieldServiceMethodDescriptorSupplier("ListCustomFields"))
                   .build();
           }
         }
      }
-     return getListCustomFieldMethod;
+     return getListCustomFieldsMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getGetCustomFieldMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  public static final io.grpc.MethodDescriptor<contactsapi.customfield.GetCustomFieldRequest,
       contactsapi.customfield.CustomField> METHOD_GET_CUSTOM_FIELD = getGetCustomFieldMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.GetCustomFieldRequest,
       contactsapi.customfield.CustomField> getGetCustomFieldMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  public static io.grpc.MethodDescriptor<contactsapi.customfield.GetCustomFieldRequest,
       contactsapi.customfield.CustomField> getGetCustomFieldMethod() {
     return getGetCustomFieldMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest,
+  private static io.grpc.MethodDescriptor<contactsapi.customfield.GetCustomFieldRequest,
       contactsapi.customfield.CustomField> getGetCustomFieldMethodHelper() {
-    io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldRequest, contactsapi.customfield.CustomField> getGetCustomFieldMethod;
+    io.grpc.MethodDescriptor<contactsapi.customfield.GetCustomFieldRequest, contactsapi.customfield.CustomField> getGetCustomFieldMethod;
     if ((getGetCustomFieldMethod = CustomFieldServiceGrpc.getGetCustomFieldMethod) == null) {
       synchronized (CustomFieldServiceGrpc.class) {
         if ((getGetCustomFieldMethod = CustomFieldServiceGrpc.getGetCustomFieldMethod) == null) {
           CustomFieldServiceGrpc.getGetCustomFieldMethod = getGetCustomFieldMethod = 
-              io.grpc.MethodDescriptor.<contactsapi.customfield.CustomFieldRequest, contactsapi.customfield.CustomField>newBuilder()
+              io.grpc.MethodDescriptor.<contactsapi.customfield.GetCustomFieldRequest, contactsapi.customfield.CustomField>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "contactsapi.customfield.CustomFieldService", "GetCustomField"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  contactsapi.customfield.CustomFieldRequest.getDefaultInstance()))
+                  contactsapi.customfield.GetCustomFieldRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   contactsapi.customfield.CustomField.getDefaultInstance()))
                   .setSchemaDescriptor(new CustomFieldServiceMethodDescriptorSupplier("GetCustomField"))
@@ -140,32 +140,32 @@ public final class CustomFieldServiceGrpc {
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getUpdateCustomFieldMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldUpdateRequest,
+  public static final io.grpc.MethodDescriptor<contactsapi.customfield.UpdateCustomFieldRequest,
       contactsapi.customfield.CustomField> METHOD_UPDATE_CUSTOM_FIELD = getUpdateCustomFieldMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldUpdateRequest,
+  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.UpdateCustomFieldRequest,
       contactsapi.customfield.CustomField> getUpdateCustomFieldMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldUpdateRequest,
+  public static io.grpc.MethodDescriptor<contactsapi.customfield.UpdateCustomFieldRequest,
       contactsapi.customfield.CustomField> getUpdateCustomFieldMethod() {
     return getUpdateCustomFieldMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldUpdateRequest,
+  private static io.grpc.MethodDescriptor<contactsapi.customfield.UpdateCustomFieldRequest,
       contactsapi.customfield.CustomField> getUpdateCustomFieldMethodHelper() {
-    io.grpc.MethodDescriptor<contactsapi.customfield.CustomFieldUpdateRequest, contactsapi.customfield.CustomField> getUpdateCustomFieldMethod;
+    io.grpc.MethodDescriptor<contactsapi.customfield.UpdateCustomFieldRequest, contactsapi.customfield.CustomField> getUpdateCustomFieldMethod;
     if ((getUpdateCustomFieldMethod = CustomFieldServiceGrpc.getUpdateCustomFieldMethod) == null) {
       synchronized (CustomFieldServiceGrpc.class) {
         if ((getUpdateCustomFieldMethod = CustomFieldServiceGrpc.getUpdateCustomFieldMethod) == null) {
           CustomFieldServiceGrpc.getUpdateCustomFieldMethod = getUpdateCustomFieldMethod = 
-              io.grpc.MethodDescriptor.<contactsapi.customfield.CustomFieldUpdateRequest, contactsapi.customfield.CustomField>newBuilder()
+              io.grpc.MethodDescriptor.<contactsapi.customfield.UpdateCustomFieldRequest, contactsapi.customfield.CustomField>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "contactsapi.customfield.CustomFieldService", "UpdateCustomField"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  contactsapi.customfield.CustomFieldUpdateRequest.getDefaultInstance()))
+                  contactsapi.customfield.UpdateCustomFieldRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   contactsapi.customfield.CustomField.getDefaultInstance()))
                   .setSchemaDescriptor(new CustomFieldServiceMethodDescriptorSupplier("UpdateCustomField"))
@@ -205,28 +205,28 @@ public final class CustomFieldServiceGrpc {
 
     /**
      */
-    public void createCustomField(contactsapi.customfield.CustomFieldRequest request,
+    public void createCustomField(contactsapi.customfield.CreateCustomFieldRequest request,
         io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateCustomFieldMethodHelper(), responseObserver);
     }
 
     /**
      */
-    public void listCustomField(contactsapi.customfield.CustomFieldRequest request,
-        io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
-      asyncUnimplementedUnaryCall(getListCustomFieldMethodHelper(), responseObserver);
+    public void listCustomFields(contactsapi.customfield.ListCustomFieldsRequest request,
+        io.grpc.stub.StreamObserver<contactsapi.customfield.ListCustomFieldsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getListCustomFieldsMethodHelper(), responseObserver);
     }
 
     /**
      */
-    public void getCustomField(contactsapi.customfield.CustomFieldRequest request,
+    public void getCustomField(contactsapi.customfield.GetCustomFieldRequest request,
         io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
       asyncUnimplementedUnaryCall(getGetCustomFieldMethodHelper(), responseObserver);
     }
 
     /**
      */
-    public void updateCustomField(contactsapi.customfield.CustomFieldUpdateRequest request,
+    public void updateCustomField(contactsapi.customfield.UpdateCustomFieldRequest request,
         io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdateCustomFieldMethodHelper(), responseObserver);
     }
@@ -237,28 +237,28 @@ public final class CustomFieldServiceGrpc {
             getCreateCustomFieldMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                contactsapi.customfield.CustomFieldRequest,
+                contactsapi.customfield.CreateCustomFieldRequest,
                 contactsapi.customfield.CustomField>(
                   this, METHODID_CREATE_CUSTOM_FIELD)))
           .addMethod(
-            getListCustomFieldMethodHelper(),
+            getListCustomFieldsMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                contactsapi.customfield.CustomFieldRequest,
-                contactsapi.customfield.CustomField>(
-                  this, METHODID_LIST_CUSTOM_FIELD)))
+                contactsapi.customfield.ListCustomFieldsRequest,
+                contactsapi.customfield.ListCustomFieldsResponse>(
+                  this, METHODID_LIST_CUSTOM_FIELDS)))
           .addMethod(
             getGetCustomFieldMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                contactsapi.customfield.CustomFieldRequest,
+                contactsapi.customfield.GetCustomFieldRequest,
                 contactsapi.customfield.CustomField>(
                   this, METHODID_GET_CUSTOM_FIELD)))
           .addMethod(
             getUpdateCustomFieldMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                contactsapi.customfield.CustomFieldUpdateRequest,
+                contactsapi.customfield.UpdateCustomFieldRequest,
                 contactsapi.customfield.CustomField>(
                   this, METHODID_UPDATE_CUSTOM_FIELD)))
           .build();
@@ -285,7 +285,7 @@ public final class CustomFieldServiceGrpc {
 
     /**
      */
-    public void createCustomField(contactsapi.customfield.CustomFieldRequest request,
+    public void createCustomField(contactsapi.customfield.CreateCustomFieldRequest request,
         io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCreateCustomFieldMethodHelper(), getCallOptions()), request, responseObserver);
@@ -293,15 +293,15 @@ public final class CustomFieldServiceGrpc {
 
     /**
      */
-    public void listCustomField(contactsapi.customfield.CustomFieldRequest request,
-        io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
+    public void listCustomFields(contactsapi.customfield.ListCustomFieldsRequest request,
+        io.grpc.stub.StreamObserver<contactsapi.customfield.ListCustomFieldsResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getListCustomFieldMethodHelper(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getListCustomFieldsMethodHelper(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getCustomField(contactsapi.customfield.CustomFieldRequest request,
+    public void getCustomField(contactsapi.customfield.GetCustomFieldRequest request,
         io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetCustomFieldMethodHelper(), getCallOptions()), request, responseObserver);
@@ -309,7 +309,7 @@ public final class CustomFieldServiceGrpc {
 
     /**
      */
-    public void updateCustomField(contactsapi.customfield.CustomFieldUpdateRequest request,
+    public void updateCustomField(contactsapi.customfield.UpdateCustomFieldRequest request,
         io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdateCustomFieldMethodHelper(), getCallOptions()), request, responseObserver);
@@ -336,28 +336,28 @@ public final class CustomFieldServiceGrpc {
 
     /**
      */
-    public contactsapi.customfield.CustomField createCustomField(contactsapi.customfield.CustomFieldRequest request) {
+    public contactsapi.customfield.CustomField createCustomField(contactsapi.customfield.CreateCustomFieldRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateCustomFieldMethodHelper(), getCallOptions(), request);
     }
 
     /**
      */
-    public contactsapi.customfield.CustomField listCustomField(contactsapi.customfield.CustomFieldRequest request) {
+    public contactsapi.customfield.ListCustomFieldsResponse listCustomFields(contactsapi.customfield.ListCustomFieldsRequest request) {
       return blockingUnaryCall(
-          getChannel(), getListCustomFieldMethodHelper(), getCallOptions(), request);
+          getChannel(), getListCustomFieldsMethodHelper(), getCallOptions(), request);
     }
 
     /**
      */
-    public contactsapi.customfield.CustomField getCustomField(contactsapi.customfield.CustomFieldRequest request) {
+    public contactsapi.customfield.CustomField getCustomField(contactsapi.customfield.GetCustomFieldRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetCustomFieldMethodHelper(), getCallOptions(), request);
     }
 
     /**
      */
-    public contactsapi.customfield.CustomField updateCustomField(contactsapi.customfield.CustomFieldUpdateRequest request) {
+    public contactsapi.customfield.CustomField updateCustomField(contactsapi.customfield.UpdateCustomFieldRequest request) {
       return blockingUnaryCall(
           getChannel(), getUpdateCustomFieldMethodHelper(), getCallOptions(), request);
     }
@@ -384,23 +384,23 @@ public final class CustomFieldServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<contactsapi.customfield.CustomField> createCustomField(
-        contactsapi.customfield.CustomFieldRequest request) {
+        contactsapi.customfield.CreateCustomFieldRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateCustomFieldMethodHelper(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<contactsapi.customfield.CustomField> listCustomField(
-        contactsapi.customfield.CustomFieldRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<contactsapi.customfield.ListCustomFieldsResponse> listCustomFields(
+        contactsapi.customfield.ListCustomFieldsRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getListCustomFieldMethodHelper(), getCallOptions()), request);
+          getChannel().newCall(getListCustomFieldsMethodHelper(), getCallOptions()), request);
     }
 
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<contactsapi.customfield.CustomField> getCustomField(
-        contactsapi.customfield.CustomFieldRequest request) {
+        contactsapi.customfield.GetCustomFieldRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetCustomFieldMethodHelper(), getCallOptions()), request);
     }
@@ -408,14 +408,14 @@ public final class CustomFieldServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<contactsapi.customfield.CustomField> updateCustomField(
-        contactsapi.customfield.CustomFieldUpdateRequest request) {
+        contactsapi.customfield.UpdateCustomFieldRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdateCustomFieldMethodHelper(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_CREATE_CUSTOM_FIELD = 0;
-  private static final int METHODID_LIST_CUSTOM_FIELD = 1;
+  private static final int METHODID_LIST_CUSTOM_FIELDS = 1;
   private static final int METHODID_GET_CUSTOM_FIELD = 2;
   private static final int METHODID_UPDATE_CUSTOM_FIELD = 3;
 
@@ -437,19 +437,19 @@ public final class CustomFieldServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_CUSTOM_FIELD:
-          serviceImpl.createCustomField((contactsapi.customfield.CustomFieldRequest) request,
+          serviceImpl.createCustomField((contactsapi.customfield.CreateCustomFieldRequest) request,
               (io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField>) responseObserver);
           break;
-        case METHODID_LIST_CUSTOM_FIELD:
-          serviceImpl.listCustomField((contactsapi.customfield.CustomFieldRequest) request,
-              (io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField>) responseObserver);
+        case METHODID_LIST_CUSTOM_FIELDS:
+          serviceImpl.listCustomFields((contactsapi.customfield.ListCustomFieldsRequest) request,
+              (io.grpc.stub.StreamObserver<contactsapi.customfield.ListCustomFieldsResponse>) responseObserver);
           break;
         case METHODID_GET_CUSTOM_FIELD:
-          serviceImpl.getCustomField((contactsapi.customfield.CustomFieldRequest) request,
+          serviceImpl.getCustomField((contactsapi.customfield.GetCustomFieldRequest) request,
               (io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField>) responseObserver);
           break;
         case METHODID_UPDATE_CUSTOM_FIELD:
-          serviceImpl.updateCustomField((contactsapi.customfield.CustomFieldUpdateRequest) request,
+          serviceImpl.updateCustomField((contactsapi.customfield.UpdateCustomFieldRequest) request,
               (io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField>) responseObserver);
           break;
         default:
@@ -514,7 +514,7 @@ public final class CustomFieldServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CustomFieldServiceFileDescriptorSupplier())
               .addMethod(getCreateCustomFieldMethodHelper())
-              .addMethod(getListCustomFieldMethodHelper())
+              .addMethod(getListCustomFieldsMethodHelper())
               .addMethod(getGetCustomFieldMethodHelper())
               .addMethod(getUpdateCustomFieldMethodHelper())
               .build();

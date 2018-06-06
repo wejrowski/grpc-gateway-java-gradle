@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package contactsapi.customfield;
+option java_multiple_files = true;
+
+//import "google/protobuf/timestamp.proto";
+//import "google.protobuf.Timestamp";
+// /usr/local/include/google/protobuf/timestamp.proto
+import "google/api/annotations.proto";
+//import "annotations.proto";
+
+message CreateCustomFieldRequest {
+    string name = 1;
+    enum Type {
+        TEXT = 0;
+        NUMBER = 1;
+        BOOLEAN = 2;
+        DATE_TIME = 3;
+        EMAIL = 4;
+        PHONE_NUMBER = 5;
+        URL = 6;
+    }
+
+    Type type = 2;
+    string label = 3;
+//    ??
+//    repeated string field_mask = 4;
+}
+
+message ListCustomFieldsRequest {
+    string page_token = 1;
+    int32 page_size = 2;
+    // TODO: string or array of strings?
+    repeated string field_mask = 3;
+}
+message ListCustomFieldsResponse {
+    repeated CustomField custom_fields = 1;
+    int32 count = 2;
+    string next_page_token = 3;
+}
+
+message GetCustomFieldRequest {
+    string id = 1;
+    repeated string field_mask = 2;
+}
+
+
+// TODO: Will we allow updating type/label?
+message UpdateCustomFieldRequest {
+    string id = 1;
+    string name = 2;
+    repeated string update_mask = 3;
+}
+
+message CustomField {
+    string name = 1;
+    enum Type {
+        TEXT = 0;
+        NUMBER = 1;
+        BOOLEAN = 2;
+        DATE_TIME = 3;
+        EMAIL = 4;
+        PHONE_NUMBER = 5;
+        URL = 6;
+    }
+
+    Type type = 2;
+    string label = 3;
+
+    string id = 4;
+    // TODO: or Timestamp.proto?
+    string created = 5;
+    string updated = 6;
+
+}
+
+service CustomFieldService {
+    rpc CreateCustomField(CreateCustomFieldRequest) returns (CustomField) {
+        option (google.api.http) = {
+            post: "/v1/customfields"
+            body: "*"
+        };
+    };
+
+    rpc ListCustomFields(ListCustomFieldsRequest) returns (ListCustomFieldsResponse) {
+        option (google.api.http) = {
+            get: "/v1/customfields"
+        };
+    };
+
+    rpc GetCustomField(GetCustomFieldRequest) returns (CustomField) {
+        option (google.api.http) = {
+            get: "/v1/customfields/{id}"
+        };
+    };
+
+    rpc UpdateCustomField(UpdateCustomFieldRequest) returns (CustomField) {
+        option (google.api.http) = {
+            patch: "/v1/customfields/{id}"
+        };
+    };
+}
+

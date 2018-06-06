@@ -1,0 +1,14 @@
+syntax = "proto3";
+message ListContactsRequest {
+    string pageToken = 1;
+    int32 limit = 2;
+    repeated string fieldMask = 3;
+    string givenName = 4;//	filter contacts by givenName	string
+    string familyName = 5;//	filter contacts by familyName	string
+    string email = 6;//	filter contacts by email	string
+    repeated string tags = 7;//	filter contacts by tag nams	string[]
+    // TODO: get Timestamp.proto import working
+    // Timestamp created = 8;//	filter contacts by create date	date range - 1/12/18~2/12/18
+    repeated string contactIds = 9;
+    string companyId = 10;// 	filter contacts by company Id	string
+}

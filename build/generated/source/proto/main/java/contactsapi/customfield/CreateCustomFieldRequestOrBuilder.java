@@ -3,8 +3,8 @@
 
 package contactsapi.customfield;
 
-public interface CustomFieldRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:contactsapi.customfield.CustomFieldRequest)
+public interface CreateCustomFieldRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:contactsapi.customfield.CreateCustomFieldRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,19 +18,29 @@ public interface CustomFieldRequestOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.contactsapi.customfield.CustomFieldRequest.Type type = 2;</code>
+   * <code>.contactsapi.customfield.CreateCustomFieldRequest.Type type = 2;</code>
    */
   int getTypeValue();
   /**
-   * <code>.contactsapi.customfield.CustomFieldRequest.Type type = 2;</code>
+   * <code>.contactsapi.customfield.CreateCustomFieldRequest.Type type = 2;</code>
    */
-  contactsapi.customfield.CustomFieldRequest.Type getType();
+  contactsapi.customfield.CreateCustomFieldRequest.Type getType();
 
   /**
+   * <pre>
+   *    ??
+   *    repeated string field_mask = 4;
+   * </pre>
+   *
    * <code>string label = 3;</code>
    */
   java.lang.String getLabel();
   /**
+   * <pre>
+   *    ??
+   *    repeated string field_mask = 4;
+   * </pre>
+   *
    * <code>string label = 3;</code>
    */
   com.google.protobuf.ByteString

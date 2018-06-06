@@ -9,7 +9,7 @@ import (
   "github.com/grpc-ecosystem/grpc-gateway/runtime"
   "google.golang.org/grpc"
 
-  gw "./src/main/proto/greet"
+  gw "./src/main/proto/contactsapi"
 )
 
 var (
@@ -26,7 +26,7 @@ func run() error {
   opts := []grpc.DialOption{grpc.WithInsecure()}
 
   // Swap out func with pb.gw.go FromEndpoint func name
-  err := gw.RegisterGreetServiceHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+  err := gw.RegisterCustomFieldServiceHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
 
   if err != nil {
     return err

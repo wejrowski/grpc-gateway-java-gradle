@@ -37,6 +37,8 @@ go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
+Note: Right now I copied the annotations.proto and http.proto into the project from the grpc-gateway
+go installation. 
 
 Generate go server (pb.go)
 
@@ -46,7 +48,7 @@ protoc -I/usr/local/include -I. \
   -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
   --plugin=protoc-gen-go=$GOPATH/bin/protoc-gen-go \
   --go_out=plugins=grpc:. \
-  ./src/main/proto/greet/greet.proto
+  ./src/main/proto/contactsapi/customfieldschema.proto
 ```
 
 Create the proxy pb.gw.go file:
@@ -57,7 +59,7 @@ protoc -I/usr/local/include -I. \
   -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
   --plugin=protoc-gen-grpc-gateway=$GOPATH/bin/protoc-gen-grpc-gateway  \
   --grpc-gateway_out=logtostderr=true:. \
-  ./src/main/proto/greet/greet.proto
+  ./src/main/proto/contactsapi/customfieldschema.proto
 ```
 
 // Generate swagger (not needed for proxy)
@@ -82,3 +84,25 @@ NOTE: GreetingServer.java sets the port for the gRPC server ServerBuilder.forPor
 entry.go sets ```echoEndpoint = flag.String("echo_endpoint", "localhost:9090", "endpoint of YourService")```
 That was changed to gRPC server port ```50051``` (from the grpc-gateway repo)
 
+
+
+## Sample Endpoint requests
+
+Documentation: https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api
+
+// TODO: Why when asking for type TEXT, it doesn't return the label?
+// Is that by default for default or first values?
+```curl -X POST -d '{"label": "a label", "name": "a name", "type": "DATE_TIME"}' -k http://localhost:8080/v1/customfields```
+{"name":"a name","type":"DATE_TIME","label":"a label"}
+
+// TODO: Test params
+```curl -X GET -k http://localhost:8080/v1/customfields/12```
+{"name":"FieldName","label":"Field Label"}%
+
+// TODO: Test params
+```curl -X GET -k http://localhost:8080/v1/customfields```
+```{"custom_fields":[{"name":"fav_color","label":"Favorite Color"},{"name":"fav_day","type":"DATE_TIME","label":"Favorite day"}],"count":25}```
+
+// NOTE: type also is left out if it's set to TEXT
+```curl -X PATCH -k -d '{"name": "my name"}' http://localhost:8080/v1/customfields/1```
+```{"name":"1","label":"Field Label"}```

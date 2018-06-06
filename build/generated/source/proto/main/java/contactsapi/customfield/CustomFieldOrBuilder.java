@@ -35,4 +35,42 @@ public interface CustomFieldOrBuilder extends
    */
   com.google.protobuf.ByteString
       getLabelBytes();
+
+  /**
+   * <code>string id = 4;</code>
+   */
+  java.lang.String getId();
+  /**
+   * <code>string id = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
+
+  /**
+   * <pre>
+   * TODO: or Timestamp.proto?
+   * </pre>
+   *
+   * <code>string created = 5;</code>
+   */
+  java.lang.String getCreated();
+  /**
+   * <pre>
+   * TODO: or Timestamp.proto?
+   * </pre>
+   *
+   * <code>string created = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getCreatedBytes();
+
+  /**
+   * <code>string updated = 6;</code>
+   */
+  java.lang.String getUpdated();
+  /**
+   * <code>string updated = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getUpdatedBytes();
 }
