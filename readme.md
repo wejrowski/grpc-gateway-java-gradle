@@ -1,4 +1,86 @@
-# Steps
+## Get the gateway running
+
+1. Start java server
+```CustomFieldServer.java```
+2. Run the go proxy 
+```go run entry.go```
+3. curl the rest proxy endpoints (below)
+
+
+## Sample Endpoint requests
+*Documentation: https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api*)
+
+### Create Custom Field
+
+*// TODO: Why when asking for type TEXT, it doesn't return the label?
+// Is that by default for default or first values?*
+
+```curl -X POST -d '{"label": "a label", "name": "a name", "type": "DATE_TIME"}' -k http://localhost:8080/v1/customfields```
+
+Response:
+```json
+{
+    "name":"a name",
+    "type":"DATE_TIME",
+    "label":"a label"
+}
+```
+
+### Get Custom Field
+
+*// TODO: Test params*
+
+```curl -X GET -k http://localhost:8080/v1/customfields/12```
+
+Response:
+```json
+{
+    "name": "FieldName",
+    "label":"Field Label"
+}
+```
+
+### List Custom Field
+
+*// TODO: Test params*
+
+```curl -X GET -k http://localhost:8080/v1/customfields```
+
+Response:
+```json
+{
+    "count": 25,
+    "custom_fields": [
+        {
+            "label": "Favorite Color",
+            "name": "fav_color"
+        },
+        {
+            "label": "Favorite day",
+            "name": "fav_day",
+            "type": "DATE_TIME"
+        }
+    ]
+}
+
+```
+
+
+### Update Custom Field
+
+*// NOTE: type also is left out if it's set to TEXT*
+
+```curl -X PATCH -k -d '{"name": "my name"}' http://localhost:8080/v1/customfields/1```
+
+Response:
+```json
+{
+    "name":"1",
+    "label":"Field Label"
+}
+```
+
+# Original steps to create
 
 Create gradle project in intellij
 
@@ -85,24 +167,3 @@ entry.go sets ```echoEndpoint = flag.String("echo_endpoint", "localhost:9090", "
 That was changed to gRPC server port ```50051``` (from the grpc-gateway repo)
 
 
-
-## Sample Endpoint requests
-
-Documentation: https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api
-
-// TODO: Why when asking for type TEXT, it doesn't return the label?
-// Is that by default for default or first values?
-```curl -X POST -d '{"label": "a label", "name": "a name", "type": "DATE_TIME"}' -k http://localhost:8080/v1/customfields```
-{"name":"a name","type":"DATE_TIME","label":"a label"}
-
-// TODO: Test params
-```curl -X GET -k http://localhost:8080/v1/customfields/12```
-{"name":"FieldName","label":"Field Label"}%
-
-// TODO: Test params
-```curl -X GET -k http://localhost:8080/v1/customfields```
-```{"custom_fields":[{"name":"fav_color","label":"Favorite Color"},{"name":"fav_day","type":"DATE_TIME","label":"Favorite day"}],"count":25}```
-
-// NOTE: type also is left out if it's set to TEXT
-```curl -X PATCH -k -d '{"name": "my name"}' http://localhost:8080/v1/customfields/1```
-```{"name":"1","label":"Field Label"}```
