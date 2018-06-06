@@ -30,19 +30,34 @@ public class CustomFieldServiceImpl extends CustomFieldServiceGrpc.CustomFieldSe
 
   @Override
   public void listCustomFields(ListCustomFieldsRequest request, StreamObserver<ListCustomFieldsResponse> responseObserver) {
-    CustomField customField1 = CustomField.newBuilder()
-            .setId("3214")
-            .setLabel("Favorite Color")
-            .setName("fav_color")
-            .setType(CustomField.Type.TEXT)
-            .build();
 
-    CustomField customField2 = CustomField.newBuilder()
-        .setId("8849")
-        .setLabel("Favorite day")
-        .setName("fav_day")
-        .setType(CustomField.Type.DATE_TIME)
-        .build();
+
+    CustomField.Builder customField1Builder = CustomField.newBuilder();
+    CustomField.Builder customField2Builder = CustomField.newBuilder();
+
+    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("id")) {
+      customField1Builder.setId("3214");
+      customField2Builder.setId("8849");
+    }
+
+    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("label")) {
+      customField1Builder.setLabel("Favorite Color");
+      customField2Builder.setLabel("Favorite day");
+    }
+
+    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("name")) {
+      customField1Builder.setName("fav_color");
+      customField2Builder.setName("fav_day");
+    }
+
+    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("type")) {
+      customField1Builder.setType(CustomField.Type.TEXT);
+      customField2Builder.setType(CustomField.Type.DATE_TIME);
+    }
+
+    CustomField customField1 = customField1Builder.build();
+    CustomField customField2 = customField2Builder.build();
+
 
     ListCustomFieldsResponse response = ListCustomFieldsResponse.newBuilder()
         .setCount(25)

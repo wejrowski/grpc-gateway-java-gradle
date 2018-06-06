@@ -9,7 +9,7 @@ import (
   "github.com/grpc-ecosystem/grpc-gateway/runtime"
   "google.golang.org/grpc"
 
-  gw "./src/main/proto/contactsapi"
+  gw "./src/main/proto/contactsapi/customfield"
 )
 
 var (

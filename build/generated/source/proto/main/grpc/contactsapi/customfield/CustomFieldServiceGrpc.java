@@ -19,7 +19,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.12.0)",
-    comments = "Source: contactsapi/customfieldschema.proto")
+    comments = "Source: contactsapi/customfield/customfieldschema.proto")
 public final class CustomFieldServiceGrpc {
 
   private CustomFieldServiceGrpc() {}

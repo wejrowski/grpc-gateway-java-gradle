@@ -7,7 +7,19 @@ option java_multiple_files = true;
 //import "google.protobuf.Timestamp";
 // /usr/local/include/google/protobuf/timestamp.proto
 import "google/api/annotations.proto";
-//import "annotations.proto";
+//import "google/protobuf/field_mask.proto";
+//import "field_mask.proto";
+
+// import "../../lib/google/api/annotations.proto"; // THIS APPARENTLY IS IN GOOGLE/PROTOBUF/API.PROTO!
+// although.. that might dissappear in build? let's try it.
+//import "google/protobuf/api.proto";
+
+
+// Not sure why I can't import this...
+message FieldMask {
+    // The set of field mask paths.
+    repeated string paths = 1;
+}
 
 message CreateCustomFieldRequest {
     string name = 1;
@@ -41,7 +53,7 @@ message ListCustomFieldsResponse {
 
 message GetCustomFieldRequest {
     string id = 1;
-    repeated string field_mask = 2;
+    FieldMask field_mask = 2;
 }
 
 
@@ -49,7 +61,7 @@ message GetCustomFieldRequest {
 message UpdateCustomFieldRequest {
     string id = 1;
     string name = 2;
-    repeated string update_mask = 3;
+    FieldMask update_mask = 3;
 }
 
 message CustomField {
