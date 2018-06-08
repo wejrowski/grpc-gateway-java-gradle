@@ -65,10 +65,18 @@ public interface CustomFieldOrBuilder extends
       getCreatedBytes();
 
   /**
+   * <pre>
+   * TODO: or Timestamp.proto?
+   * </pre>
+   *
    * <code>string updated = 6;</code>
    */
   java.lang.String getUpdated();
   /**
+   * <pre>
+   * TODO: or Timestamp.proto?
+   * </pre>
+   *
    * <code>string updated = 6;</code>
    */
   com.google.protobuf.ByteString

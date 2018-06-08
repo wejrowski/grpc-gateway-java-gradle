@@ -22,6 +22,7 @@ import "google/protobuf/field_mask.proto";
 // although.. that might dissappear in build? let's try it.
 //import "google/protobuf/api.proto";
 
+// TODO: add version (string or int32?)
 
 message CreateCustomFieldRequest {
     string name = 1;
@@ -85,11 +86,9 @@ message CustomField {
 
     Type type = 2;
     string label = 3;
-
     string id = 4;
-    // TODO: or Timestamp.proto?
-    string created = 5;
-    string updated = 6;
+    string created = 5; // TODO: or Timestamp.proto?
+    string updated = 6; // TODO: or Timestamp.proto?
 
 }
 

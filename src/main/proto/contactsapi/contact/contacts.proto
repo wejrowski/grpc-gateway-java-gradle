@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package contactsapi.contact;
+option java_multiple_files = true;
+
+//import "google/protobuf/timestamp.proto";
+//import "google.protobuf.Timestamp";
+// /usr/local/include/google/protobuf/timestamp.proto
+import "google/api/annotations.proto";
+//import "google/protobuf/field_mask.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/empty.proto";
+
+// import "../../lib/google/api/annotations.proto"; // THIS APPARENTLY IS IN GOOGLE/PROTOBUF/API.PROTO!
+// although.. that might dissappear in build? let's try it.
+//import "google/protobuf/api.proto";
+
+
+message CreateContactRequest {
+    string name = 1;
+    enum Type {
+        TEXT = 0;
+        NUMBER = 1;
+        BOOLEAN = 2;
+        DATE_TIME = 3;
+        EMAIL = 4;
+        PHONE_NUMBER = 5;
+        URL = 6;
+    }
+
+    Type type = 2;
+    string label = 3;
+}
+
+
+message ListContactsRequest {
+    string pageToken = 1;
+    int32 limit = 2;
+    repeated string fieldMask = 3;
+    string givenName = 4;//	filter contacts by givenName	string
+    string familyName = 5;//	filter contacts by familyName	string
+    string email = 6;//	filter contacts by email	string
+    repeated string tags = 7;//	filter contacts by tag nams	string[]
+    // TODO: get Timestamp.proto import working
+    // Timestamp created = 8;//	filter contacts by create date	date range - 1/12/18~2/12/18
+    repeated string contactIds = 9;
+    string companyId = 10;// 	filter contacts by company Id	string
+}
+
+message ListContactsResponse {
+    repeated ContactResponse contacts = 1;
+    string next_page_token = 2;
+    int32 count = 3;
+}
+
+message GetContactRequest {
+    string id = 1;
+    google.protobuf.FieldMask field_mask = 2;
+}
+
+
+// TODO: Will we allow updating type/label?
+message UpdateContactRequest {
+    string id = 1;
+    string name = 2;
+    google.protobuf.FieldMask update_mask = 3;
+}
+
+message ContactResponse {
+    string name = 1;
+
+}
+
+service ContactService {
+    rpc CreateContact(CreateContactRequest) returns (ContactResponse) {
+        option (google.api.http) = {
+            post: "/v1/contacts"
+            body: "*"
+        };
+    };
+
+    rpc ListContacts(ListContactsRequest) returns (ListContactsResponse) {
+        option (google.api.http) = {
+            get: "/v1/contacts"
+        };
+    };
+
+    rpc GetContact(GetContactRequest) returns (ContactResponse) {
+        option (google.api.http) = {
+            get: "/v1/contacts/{id}"
+        };
+    };
+
+    rpc UpdateContact(UpdateContactRequest) returns (ContactResponse) {
+        option (google.api.http) = {
+            patch: "/v1/contacts/{id}"
+        };
+    };
+
+    rpc DeleteContact(UpdateContactRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            patch: "/v1/contacts/{id}"
+        };
+    };
+}
