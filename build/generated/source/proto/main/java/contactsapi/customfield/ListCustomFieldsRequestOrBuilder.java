@@ -27,33 +27,23 @@ public interface ListCustomFieldsRequestOrBuilder extends
    * TODO: string or array of strings?
    * </pre>
    *
-   * <code>repeated string field_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 3;</code>
    */
-  java.util.List<java.lang.String>
-      getFieldMaskList();
+  boolean hasFieldMask();
   /**
    * <pre>
    * TODO: string or array of strings?
    * </pre>
    *
-   * <code>repeated string field_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 3;</code>
    */
-  int getFieldMaskCount();
+  google.protobuf.FieldMaskOuterClass.FieldMask getFieldMask();
   /**
    * <pre>
    * TODO: string or array of strings?
    * </pre>
    *
-   * <code>repeated string field_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 3;</code>
    */
-  java.lang.String getFieldMask(int index);
-  /**
-   * <pre>
-   * TODO: string or array of strings?
-   * </pre>
-   *
-   * <code>repeated string field_mask = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getFieldMaskBytes(int index);
+  google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getFieldMaskOrBuilder();
 }

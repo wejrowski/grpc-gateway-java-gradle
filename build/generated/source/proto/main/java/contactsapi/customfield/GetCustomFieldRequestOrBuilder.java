@@ -18,15 +18,15 @@ public interface GetCustomFieldRequestOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>.contactsapi.customfield.FieldMask field_mask = 2;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 2;</code>
    */
   boolean hasFieldMask();
   /**
-   * <code>.contactsapi.customfield.FieldMask field_mask = 2;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 2;</code>
    */
-  contactsapi.customfield.FieldMask getFieldMask();
+  google.protobuf.FieldMaskOuterClass.FieldMask getFieldMask();
   /**
-   * <code>.contactsapi.customfield.FieldMask field_mask = 2;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 2;</code>
    */
-  contactsapi.customfield.FieldMaskOrBuilder getFieldMaskOrBuilder();
+  google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getFieldMaskOrBuilder();
 }

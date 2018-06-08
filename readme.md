@@ -72,7 +72,7 @@ Response:
 
 ### List fields with mask
 ```
-curl -X GET -k http://localhost:8080/v1/customfields\?field_mask\=name\&field_mask\=id
+curl -X GET -k http://localhost:8080/v1/customfields\?field_mask.paths\=id\&field_mask.paths\=name
 ```
 
 Response:

@@ -68,11 +68,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            contactsapi.customfield.FieldMask.Builder subBuilder = null;
+            google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
             if (updateMask_ != null) {
               subBuilder = updateMask_.toBuilder();
             }
-            updateMask_ = input.readMessage(contactsapi.customfield.FieldMask.parser(), extensionRegistry);
+            updateMask_ = input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(updateMask_);
               updateMask_ = subBuilder.buildPartial();
@@ -173,23 +173,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 3;
-  private contactsapi.customfield.FieldMask updateMask_;
+  private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
   /**
-   * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 3;</code>
    */
   public boolean hasUpdateMask() {
     return updateMask_ != null;
   }
   /**
-   * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 3;</code>
    */
-  public contactsapi.customfield.FieldMask getUpdateMask() {
-    return updateMask_ == null ? contactsapi.customfield.FieldMask.getDefaultInstance() : updateMask_;
+  public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+    return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
   }
   /**
-   * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 3;</code>
    */
-  public contactsapi.customfield.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+  public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
     return getUpdateMask();
   }
 
@@ -665,29 +665,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private contactsapi.customfield.FieldMask updateMask_ = null;
+    private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        contactsapi.customfield.FieldMask, contactsapi.customfield.FieldMask.Builder, contactsapi.customfield.FieldMaskOrBuilder> updateMaskBuilder_;
+        google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
     public boolean hasUpdateMask() {
       return updateMaskBuilder_ != null || updateMask_ != null;
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
-    public contactsapi.customfield.FieldMask getUpdateMask() {
+    public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
       if (updateMaskBuilder_ == null) {
-        return updateMask_ == null ? contactsapi.customfield.FieldMask.getDefaultInstance() : updateMask_;
+        return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
       } else {
         return updateMaskBuilder_.getMessage();
       }
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
-    public Builder setUpdateMask(contactsapi.customfield.FieldMask value) {
+    public Builder setUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
       if (updateMaskBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -701,10 +701,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
     public Builder setUpdateMask(
-        contactsapi.customfield.FieldMask.Builder builderForValue) {
+        google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
         onChanged();
@@ -715,13 +715,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
-    public Builder mergeUpdateMask(contactsapi.customfield.FieldMask value) {
+    public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
       if (updateMaskBuilder_ == null) {
         if (updateMask_ != null) {
           updateMask_ =
-            contactsapi.customfield.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+            google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
         } else {
           updateMask_ = value;
         }
@@ -733,7 +733,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
     public Builder clearUpdateMask() {
       if (updateMaskBuilder_ == null) {
@@ -747,33 +747,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
-    public contactsapi.customfield.FieldMask.Builder getUpdateMaskBuilder() {
+    public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
       
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
-    public contactsapi.customfield.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
       if (updateMaskBuilder_ != null) {
         return updateMaskBuilder_.getMessageOrBuilder();
       } else {
         return updateMask_ == null ?
-            contactsapi.customfield.FieldMask.getDefaultInstance() : updateMask_;
+            google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
       }
     }
     /**
-     * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        contactsapi.customfield.FieldMask, contactsapi.customfield.FieldMask.Builder, contactsapi.customfield.FieldMaskOrBuilder> 
+        google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
         getUpdateMaskFieldBuilder() {
       if (updateMaskBuilder_ == null) {
         updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            contactsapi.customfield.FieldMask, contactsapi.customfield.FieldMask.Builder, contactsapi.customfield.FieldMaskOrBuilder>(
+            google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
                 getUpdateMask(),
                 getParentForChildren(),
                 isClean());

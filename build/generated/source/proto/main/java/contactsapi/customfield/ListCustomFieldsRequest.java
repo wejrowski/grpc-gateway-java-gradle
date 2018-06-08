@@ -18,7 +18,6 @@ private static final long serialVersionUID = 0L;
   private ListCustomFieldsRequest() {
     pageToken_ = "";
     pageSize_ = 0;
-    fieldMask_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -64,12 +63,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              fieldMask_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
+            google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
+            if (fieldMask_ != null) {
+              subBuilder = fieldMask_.toBuilder();
             }
-            fieldMask_.add(s);
+            fieldMask_ = input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(fieldMask_);
+              fieldMask_ = subBuilder.buildPartial();
+            }
+
             break;
           }
         }
@@ -80,9 +83,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-        fieldMask_ = fieldMask_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -99,7 +99,6 @@ private static final long serialVersionUID = 0L;
             contactsapi.customfield.ListCustomFieldsRequest.class, contactsapi.customfield.ListCustomFieldsRequest.Builder.class);
   }
 
-  private int bitField0_;
   public static final int PAGE_TOKEN_FIELD_NUMBER = 1;
   private volatile java.lang.Object pageToken_;
   /**
@@ -144,48 +143,36 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FIELD_MASK_FIELD_NUMBER = 3;
-  private com.google.protobuf.LazyStringList fieldMask_;
+  private google.protobuf.FieldMaskOuterClass.FieldMask fieldMask_;
   /**
    * <pre>
    * TODO: string or array of strings?
    * </pre>
    *
-   * <code>repeated string field_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 3;</code>
    */
-  public com.google.protobuf.ProtocolStringList
-      getFieldMaskList() {
-    return fieldMask_;
+  public boolean hasFieldMask() {
+    return fieldMask_ != null;
   }
   /**
    * <pre>
    * TODO: string or array of strings?
    * </pre>
    *
-   * <code>repeated string field_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 3;</code>
    */
-  public int getFieldMaskCount() {
-    return fieldMask_.size();
+  public google.protobuf.FieldMaskOuterClass.FieldMask getFieldMask() {
+    return fieldMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : fieldMask_;
   }
   /**
    * <pre>
    * TODO: string or array of strings?
    * </pre>
    *
-   * <code>repeated string field_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask field_mask = 3;</code>
    */
-  public java.lang.String getFieldMask(int index) {
-    return fieldMask_.get(index);
-  }
-  /**
-   * <pre>
-   * TODO: string or array of strings?
-   * </pre>
-   *
-   * <code>repeated string field_mask = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getFieldMaskBytes(int index) {
-    return fieldMask_.getByteString(index);
+  public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getFieldMaskOrBuilder() {
+    return getFieldMask();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -206,8 +193,8 @@ private static final long serialVersionUID = 0L;
     if (pageSize_ != 0) {
       output.writeInt32(2, pageSize_);
     }
-    for (int i = 0; i < fieldMask_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fieldMask_.getRaw(i));
+    if (fieldMask_ != null) {
+      output.writeMessage(3, getFieldMask());
     }
     unknownFields.writeTo(output);
   }
@@ -224,13 +211,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, pageSize_);
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < fieldMask_.size(); i++) {
-        dataSize += computeStringSizeNoTag(fieldMask_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getFieldMaskList().size();
+    if (fieldMask_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getFieldMask());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -252,8 +235,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPageToken());
     result = result && (getPageSize()
         == other.getPageSize());
-    result = result && getFieldMaskList()
-        .equals(other.getFieldMaskList());
+    result = result && (hasFieldMask() == other.hasFieldMask());
+    if (hasFieldMask()) {
+      result = result && getFieldMask()
+          .equals(other.getFieldMask());
+    }
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -269,9 +255,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageToken().hashCode();
     hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
     hash = (53 * hash) + getPageSize();
-    if (getFieldMaskCount() > 0) {
+    if (hasFieldMask()) {
       hash = (37 * hash) + FIELD_MASK_FIELD_NUMBER;
-      hash = (53 * hash) + getFieldMaskList().hashCode();
+      hash = (53 * hash) + getFieldMask().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -406,8 +392,12 @@ private static final long serialVersionUID = 0L;
 
       pageSize_ = 0;
 
-      fieldMask_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      if (fieldMaskBuilder_ == null) {
+        fieldMask_ = null;
+      } else {
+        fieldMask_ = null;
+        fieldMaskBuilder_ = null;
+      }
       return this;
     }
 
@@ -430,16 +420,13 @@ private static final long serialVersionUID = 0L;
 
     public contactsapi.customfield.ListCustomFieldsRequest buildPartial() {
       contactsapi.customfield.ListCustomFieldsRequest result = new contactsapi.customfield.ListCustomFieldsRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
       result.pageToken_ = pageToken_;
       result.pageSize_ = pageSize_;
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        fieldMask_ = fieldMask_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+      if (fieldMaskBuilder_ == null) {
+        result.fieldMask_ = fieldMask_;
+      } else {
+        result.fieldMask_ = fieldMaskBuilder_.build();
       }
-      result.fieldMask_ = fieldMask_;
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -488,15 +475,8 @@ private static final long serialVersionUID = 0L;
       if (other.getPageSize() != 0) {
         setPageSize(other.getPageSize());
       }
-      if (!other.fieldMask_.isEmpty()) {
-        if (fieldMask_.isEmpty()) {
-          fieldMask_ = other.fieldMask_;
-          bitField0_ = (bitField0_ & ~0x00000004);
-        } else {
-          ensureFieldMaskIsMutable();
-          fieldMask_.addAll(other.fieldMask_);
-        }
-        onChanged();
+      if (other.hasFieldMask()) {
+        mergeFieldMask(other.getFieldMask());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -524,7 +504,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object pageToken_ = "";
     /**
@@ -621,70 +600,69 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringList fieldMask_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureFieldMaskIsMutable() {
-      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        fieldMask_ = new com.google.protobuf.LazyStringArrayList(fieldMask_);
-        bitField0_ |= 0x00000004;
-       }
-    }
+    private google.protobuf.FieldMaskOuterClass.FieldMask fieldMask_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> fieldMaskBuilder_;
     /**
      * <pre>
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getFieldMaskList() {
-      return fieldMask_.getUnmodifiableView();
+    public boolean hasFieldMask() {
+      return fieldMaskBuilder_ != null || fieldMask_ != null;
     }
     /**
      * <pre>
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
-    public int getFieldMaskCount() {
-      return fieldMask_.size();
+    public google.protobuf.FieldMaskOuterClass.FieldMask getFieldMask() {
+      if (fieldMaskBuilder_ == null) {
+        return fieldMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : fieldMask_;
+      } else {
+        return fieldMaskBuilder_.getMessage();
+      }
     }
     /**
      * <pre>
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
-    public java.lang.String getFieldMask(int index) {
-      return fieldMask_.get(index);
+    public Builder setFieldMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+      if (fieldMaskBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        fieldMask_ = value;
+        onChanged();
+      } else {
+        fieldMaskBuilder_.setMessage(value);
+      }
+
+      return this;
     }
     /**
      * <pre>
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getFieldMaskBytes(int index) {
-      return fieldMask_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * TODO: string or array of strings?
-     * </pre>
-     *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
     public Builder setFieldMask(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFieldMaskIsMutable();
-      fieldMask_.set(index, value);
-      onChanged();
+        google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
+      if (fieldMaskBuilder_ == null) {
+        fieldMask_ = builderForValue.build();
+        onChanged();
+      } else {
+        fieldMaskBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
@@ -692,16 +670,21 @@ private static final long serialVersionUID = 0L;
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
-    public Builder addFieldMask(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFieldMaskIsMutable();
-      fieldMask_.add(value);
-      onChanged();
+    public Builder mergeFieldMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+      if (fieldMaskBuilder_ == null) {
+        if (fieldMask_ != null) {
+          fieldMask_ =
+            google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder(fieldMask_).mergeFrom(value).buildPartial();
+        } else {
+          fieldMask_ = value;
+        }
+        onChanged();
+      } else {
+        fieldMaskBuilder_.mergeFrom(value);
+      }
+
       return this;
     }
     /**
@@ -709,27 +692,17 @@ private static final long serialVersionUID = 0L;
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
-     */
-    public Builder addAllFieldMask(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureFieldMaskIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, fieldMask_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * TODO: string or array of strings?
-     * </pre>
-     *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
     public Builder clearFieldMask() {
-      fieldMask_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
+      if (fieldMaskBuilder_ == null) {
+        fieldMask_ = null;
+        onChanged();
+      } else {
+        fieldMask_ = null;
+        fieldMaskBuilder_ = null;
+      }
+
       return this;
     }
     /**
@@ -737,18 +710,47 @@ private static final long serialVersionUID = 0L;
      * TODO: string or array of strings?
      * </pre>
      *
-     * <code>repeated string field_mask = 3;</code>
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
      */
-    public Builder addFieldMaskBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureFieldMaskIsMutable();
-      fieldMask_.add(value);
+    public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getFieldMaskBuilder() {
+      
       onChanged();
-      return this;
+      return getFieldMaskFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * TODO: string or array of strings?
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
+     */
+    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getFieldMaskOrBuilder() {
+      if (fieldMaskBuilder_ != null) {
+        return fieldMaskBuilder_.getMessageOrBuilder();
+      } else {
+        return fieldMask_ == null ?
+            google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : fieldMask_;
+      }
+    }
+    /**
+     * <pre>
+     * TODO: string or array of strings?
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask field_mask = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
+        getFieldMaskFieldBuilder() {
+      if (fieldMaskBuilder_ == null) {
+        fieldMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
+                getFieldMask(),
+                getParentForChildren(),
+                isClean());
+        fieldMask_ = null;
+      }
+      return fieldMaskBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

@@ -15,11 +15,6 @@ public final class Customfieldschema {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_contactsapi_customfield_FieldMask_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_contactsapi_customfield_FieldMask_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_contactsapi_customfield_CreateCustomFieldRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -45,6 +40,11 @@ public final class Customfieldschema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_contactsapi_customfield_UpdateCustomFieldRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_contactsapi_customfield_DeleteCustomFieldRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_contactsapi_customfield_DeleteCustomFieldRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_contactsapi_customfield_CustomField_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -59,46 +59,51 @@ public final class Customfieldschema {
   static {
     java.lang.String[] descriptorData = {
       "\n/contactsapi/customfield/customfieldsch" +
-      "ema.proto\022\027contactsapi.customfield\032\034goog" +
-      "le/api/annotations.proto\"\032\n\tFieldMask\022\r\n" +
-      "\005paths\030\001 \003(\t\"\335\001\n\030CreateCustomFieldReques" +
-      "t\022\014\n\004name\030\001 \001(\t\022D\n\004type\030\002 \001(\01626.contacts" +
-      "api.customfield.CreateCustomFieldRequest" +
-      ".Type\022\r\n\005label\030\003 \001(\t\"^\n\004Type\022\010\n\004TEXT\020\000\022\n" +
-      "\n\006NUMBER\020\001\022\013\n\007BOOLEAN\020\002\022\r\n\tDATE_TIME\020\003\022\t" +
-      "\n\005EMAIL\020\004\022\020\n\014PHONE_NUMBER\020\005\022\007\n\003URL\020\006\"T\n\027" +
-      "ListCustomFieldsRequest\022\022\n\npage_token\030\001 " +
-      "\001(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\nfield_mask\030\003 \003" +
-      "(\t\"\177\n\030ListCustomFieldsResponse\022;\n\rcustom" +
-      "_fields\030\001 \003(\0132$.contactsapi.customfield." +
-      "CustomField\022\r\n\005count\030\002 \001(\005\022\027\n\017next_page_" +
-      "token\030\003 \001(\t\"[\n\025GetCustomFieldRequest\022\n\n\002" +
-      "id\030\001 \001(\t\0226\n\nfield_mask\030\002 \001(\0132\".contactsa" +
-      "pi.customfield.FieldMask\"m\n\030UpdateCustom" +
-      "FieldRequest\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\0227" +
-      "\n\013update_mask\030\003 \001(\0132\".contactsapi.custom" +
-      "field.FieldMask\"\361\001\n\013CustomField\022\014\n\004name\030" +
-      "\001 \001(\t\0227\n\004type\030\002 \001(\0162).contactsapi.custom" +
-      "field.CustomField.Type\022\r\n\005label\030\003 \001(\t\022\n\n" +
-      "\002id\030\004 \001(\t\022\017\n\007created\030\005 \001(\t\022\017\n\007updated\030\006 " +
-      "\001(\t\"^\n\004Type\022\010\n\004TEXT\020\000\022\n\n\006NUMBER\020\001\022\013\n\007BOO" +
-      "LEAN\020\002\022\r\n\tDATE_TIME\020\003\022\t\n\005EMAIL\020\004\022\020\n\014PHON" +
-      "E_NUMBER\020\005\022\007\n\003URL\020\0062\312\004\n\022CustomFieldServi" +
-      "ce\022\211\001\n\021CreateCustomField\0221.contactsapi.c" +
-      "ustomfield.CreateCustomFieldRequest\032$.co" +
-      "ntactsapi.customfield.CustomField\"\033\202\323\344\223\002" +
-      "\025\"\020/v1/customfields:\001*\022\221\001\n\020ListCustomFie" +
-      "lds\0220.contactsapi.customfield.ListCustom" +
-      "FieldsRequest\0321.contactsapi.customfield." +
-      "ListCustomFieldsResponse\"\030\202\323\344\223\002\022\022\020/v1/cu" +
-      "stomfields\022\205\001\n\016GetCustomField\022..contacts" +
-      "api.customfield.GetCustomFieldRequest\032$." +
-      "contactsapi.customfield.CustomField\"\035\202\323\344" +
-      "\223\002\027\022\025/v1/customfields/{id}\022\213\001\n\021UpdateCus" +
-      "tomField\0221.contactsapi.customfield.Updat" +
-      "eCustomFieldRequest\032$.contactsapi.custom" +
-      "field.CustomField\"\035\202\323\344\223\002\0272\025/v1/customfie" +
-      "lds/{id}B\002P\001b\006proto3"
+      "ema.proto\022\027contactsapi.customfield\032\033goog" +
+      "le/protobuf/empty.proto\032\034google/api/anno" +
+      "tations.proto\032 google/protobuf/field_mas" +
+      "k.proto\"\335\001\n\030CreateCustomFieldRequest\022\014\n\004" +
+      "name\030\001 \001(\t\022D\n\004type\030\002 \001(\01626.contactsapi.c" +
+      "ustomfield.CreateCustomFieldRequest.Type" +
+      "\022\r\n\005label\030\003 \001(\t\"^\n\004Type\022\010\n\004TEXT\020\000\022\n\n\006NUM" +
+      "BER\020\001\022\013\n\007BOOLEAN\020\002\022\r\n\tDATE_TIME\020\003\022\t\n\005EMA" +
+      "IL\020\004\022\020\n\014PHONE_NUMBER\020\005\022\007\n\003URL\020\006\"p\n\027ListC" +
+      "ustomFieldsRequest\022\022\n\npage_token\030\001 \001(\t\022\021" +
+      "\n\tpage_size\030\002 \001(\005\022.\n\nfield_mask\030\003 \001(\0132\032." +
+      "google.protobuf.FieldMask\"\177\n\030ListCustomF" +
+      "ieldsResponse\022;\n\rcustom_fields\030\001 \003(\0132$.c" +
+      "ontactsapi.customfield.CustomField\022\r\n\005co" +
+      "unt\030\002 \001(\005\022\027\n\017next_page_token\030\003 \001(\t\"S\n\025Ge" +
+      "tCustomFieldRequest\022\n\n\002id\030\001 \001(\t\022.\n\nfield" +
+      "_mask\030\002 \001(\0132\032.google.protobuf.FieldMask\"" +
+      "e\n\030UpdateCustomFieldRequest\022\n\n\002id\030\001 \001(\t\022" +
+      "\014\n\004name\030\002 \001(\t\022/\n\013update_mask\030\003 \001(\0132\032.goo" +
+      "gle.protobuf.FieldMask\"&\n\030DeleteCustomFi" +
+      "eldRequest\022\n\n\002id\030\001 \001(\t\"\361\001\n\013CustomField\022\014" +
+      "\n\004name\030\001 \001(\t\0227\n\004type\030\002 \001(\0162).contactsapi" +
+      ".customfield.CustomField.Type\022\r\n\005label\030\003" +
+      " \001(\t\022\n\n\002id\030\004 \001(\t\022\017\n\007created\030\005 \001(\t\022\017\n\007upd" +
+      "ated\030\006 \001(\t\"^\n\004Type\022\010\n\004TEXT\020\000\022\n\n\006NUMBER\020\001" +
+      "\022\013\n\007BOOLEAN\020\002\022\r\n\tDATE_TIME\020\003\022\t\n\005EMAIL\020\004\022" +
+      "\020\n\014PHONE_NUMBER\020\005\022\007\n\003URL\020\0062\311\005\n\022CustomFie" +
+      "ldService\022\211\001\n\021CreateCustomField\0221.contac" +
+      "tsapi.customfield.CreateCustomFieldReque" +
+      "st\032$.contactsapi.customfield.CustomField" +
+      "\"\033\202\323\344\223\002\025\"\020/v1/customfields:\001*\022\221\001\n\020ListCu" +
+      "stomFields\0220.contactsapi.customfield.Lis" +
+      "tCustomFieldsRequest\0321.contactsapi.custo" +
+      "mfield.ListCustomFieldsResponse\"\030\202\323\344\223\002\022\022" +
+      "\020/v1/customfields\022\205\001\n\016GetCustomField\022..c" +
+      "ontactsapi.customfield.GetCustomFieldReq" +
+      "uest\032$.contactsapi.customfield.CustomFie" +
+      "ld\"\035\202\323\344\223\002\027\022\025/v1/customfields/{id}\022\213\001\n\021Up" +
+      "dateCustomField\0221.contactsapi.customfiel" +
+      "d.UpdateCustomFieldRequest\032$.contactsapi" +
+      ".customfield.CustomField\"\035\202\323\344\223\002\0272\025/v1/cu" +
+      "stomfields/{id}\022}\n\021DeleteCustomField\0221.c" +
+      "ontactsapi.customfield.DeleteCustomField" +
+      "Request\032\026.google.protobuf.Empty\"\035\202\323\344\223\002\027*" +
+      "\025/v1/customfields/{id}B\002P\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -111,44 +116,46 @@ public final class Customfieldschema {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.EmptyProto.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
+          google.protobuf.FieldMaskOuterClass.getDescriptor(),
         }, assigner);
-    internal_static_contactsapi_customfield_FieldMask_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_contactsapi_customfield_FieldMask_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_contactsapi_customfield_FieldMask_descriptor,
-        new java.lang.String[] { "Paths", });
     internal_static_contactsapi_customfield_CreateCustomFieldRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_contactsapi_customfield_CreateCustomFieldRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_contactsapi_customfield_CreateCustomFieldRequest_descriptor,
         new java.lang.String[] { "Name", "Type", "Label", });
     internal_static_contactsapi_customfield_ListCustomFieldsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_contactsapi_customfield_ListCustomFieldsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_contactsapi_customfield_ListCustomFieldsRequest_descriptor,
         new java.lang.String[] { "PageToken", "PageSize", "FieldMask", });
     internal_static_contactsapi_customfield_ListCustomFieldsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_contactsapi_customfield_ListCustomFieldsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_contactsapi_customfield_ListCustomFieldsResponse_descriptor,
         new java.lang.String[] { "CustomFields", "Count", "NextPageToken", });
     internal_static_contactsapi_customfield_GetCustomFieldRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_contactsapi_customfield_GetCustomFieldRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_contactsapi_customfield_GetCustomFieldRequest_descriptor,
         new java.lang.String[] { "Id", "FieldMask", });
     internal_static_contactsapi_customfield_UpdateCustomFieldRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_contactsapi_customfield_UpdateCustomFieldRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_contactsapi_customfield_UpdateCustomFieldRequest_descriptor,
         new java.lang.String[] { "Id", "Name", "UpdateMask", });
+    internal_static_contactsapi_customfield_DeleteCustomFieldRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_contactsapi_customfield_DeleteCustomFieldRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_contactsapi_customfield_DeleteCustomFieldRequest_descriptor,
+        new java.lang.String[] { "Id", });
     internal_static_contactsapi_customfield_CustomField_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_contactsapi_customfield_CustomField_fieldAccessorTable = new
@@ -160,7 +167,9 @@ public final class Customfieldschema {
     registry.add(com.google.api.AnnotationsProto.http);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    com.google.protobuf.EmptyProto.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
+    google.protobuf.FieldMaskOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

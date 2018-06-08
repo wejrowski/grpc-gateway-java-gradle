@@ -6,20 +6,22 @@ option java_multiple_files = true;
 //import "google/protobuf/timestamp.proto";
 //import "google.protobuf.Timestamp";
 // /usr/local/include/google/protobuf/timestamp.proto
+
+import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
-//import "google/protobuf/field_mask.proto";
-//import "field_mask.proto";
+// NOTE this is where these come from I beleive: https://github.com/googleapis/googleapis/tree/master/google/api
+// Gateway has it copied in their project on gateway and also swagger under third_party
+// https://github.com/grpc-ecosystem/grpc-gateway/blob/master/third_party/googleapis/google/api/annotations.proto
+
+
+//google.protobuf/
+import "google/protobuf/field_mask.proto";
+//import "contactsapi/customfield/field_mask.proto";
 
 // import "../../lib/google/api/annotations.proto"; // THIS APPARENTLY IS IN GOOGLE/PROTOBUF/API.PROTO!
 // although.. that might dissappear in build? let's try it.
 //import "google/protobuf/api.proto";
 
-
-// Not sure why I can't import this...
-message FieldMask {
-    // The set of field mask paths.
-    repeated string paths = 1;
-}
 
 message CreateCustomFieldRequest {
     string name = 1;
@@ -43,7 +45,7 @@ message ListCustomFieldsRequest {
     string page_token = 1;
     int32 page_size = 2;
     // TODO: string or array of strings?
-    repeated string field_mask = 3;
+    google.protobuf.FieldMask field_mask = 3;
 }
 message ListCustomFieldsResponse {
     repeated CustomField custom_fields = 1;
@@ -53,7 +55,7 @@ message ListCustomFieldsResponse {
 
 message GetCustomFieldRequest {
     string id = 1;
-    FieldMask field_mask = 2;
+    google.protobuf.FieldMask field_mask = 2;
 }
 
 
@@ -61,7 +63,12 @@ message GetCustomFieldRequest {
 message UpdateCustomFieldRequest {
     string id = 1;
     string name = 2;
-    FieldMask update_mask = 3;
+    google.protobuf.FieldMask update_mask = 3;
+}
+
+
+message DeleteCustomFieldRequest {
+    string id = 1;
 }
 
 message CustomField {
@@ -109,6 +116,12 @@ service CustomFieldService {
     rpc UpdateCustomField(UpdateCustomFieldRequest) returns (CustomField) {
         option (google.api.http) = {
             patch: "/v1/customfields/{id}"
+        };
+    };
+
+    rpc DeleteCustomField(DeleteCustomFieldRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            delete: "/v1/customfields/{id}"
         };
     };
 }

@@ -4,23 +4,19 @@
 package contactsapi.customfield;
 
 /**
- * <pre>
- * Not sure why I can't import this...
- * </pre>
- *
- * Protobuf type {@code contactsapi.customfield.FieldMask}
+ * Protobuf type {@code contactsapi.customfield.DeleteCustomFieldRequest}
  */
-public  final class FieldMask extends
+public  final class DeleteCustomFieldRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:contactsapi.customfield.FieldMask)
-    FieldMaskOrBuilder {
+    // @@protoc_insertion_point(message_implements:contactsapi.customfield.DeleteCustomFieldRequest)
+    DeleteCustomFieldRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use FieldMask.newBuilder() to construct.
-  private FieldMask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DeleteCustomFieldRequest.newBuilder() to construct.
+  private DeleteCustomFieldRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private FieldMask() {
-    paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+  private DeleteCustomFieldRequest() {
+    id_ = "";
   }
 
   @java.lang.Override
@@ -28,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FieldMask(
+  private DeleteCustomFieldRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -56,11 +52,8 @@ private static final long serialVersionUID = 0L;
           }
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-              paths_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            paths_.add(s);
+
+            id_ = s;
             break;
           }
         }
@@ -71,68 +64,54 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-        paths_ = paths_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_FieldMask_descriptor;
+    return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_DeleteCustomFieldRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_FieldMask_fieldAccessorTable
+    return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_DeleteCustomFieldRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            contactsapi.customfield.FieldMask.class, contactsapi.customfield.FieldMask.Builder.class);
+            contactsapi.customfield.DeleteCustomFieldRequest.class, contactsapi.customfield.DeleteCustomFieldRequest.Builder.class);
   }
 
-  public static final int PATHS_FIELD_NUMBER = 1;
-  private com.google.protobuf.LazyStringList paths_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object id_;
   /**
-   * <pre>
-   * The set of field mask paths.
-   * </pre>
-   *
-   * <code>repeated string paths = 1;</code>
+   * <code>string id = 1;</code>
    */
-  public com.google.protobuf.ProtocolStringList
-      getPathsList() {
-    return paths_;
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
   }
   /**
-   * <pre>
-   * The set of field mask paths.
-   * </pre>
-   *
-   * <code>repeated string paths = 1;</code>
-   */
-  public int getPathsCount() {
-    return paths_.size();
-  }
-  /**
-   * <pre>
-   * The set of field mask paths.
-   * </pre>
-   *
-   * <code>repeated string paths = 1;</code>
-   */
-  public java.lang.String getPaths(int index) {
-    return paths_.get(index);
-  }
-  /**
-   * <pre>
-   * The set of field mask paths.
-   * </pre>
-   *
-   * <code>repeated string paths = 1;</code>
+   * <code>string id = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getPathsBytes(int index) {
-    return paths_.getByteString(index);
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -147,8 +126,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < paths_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, paths_.getRaw(i));
+    if (!getIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
     unknownFields.writeTo(output);
   }
@@ -158,13 +137,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < paths_.size(); i++) {
-        dataSize += computeStringSizeNoTag(paths_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getPathsList().size();
+    if (!getIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -176,14 +150,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof contactsapi.customfield.FieldMask)) {
+    if (!(obj instanceof contactsapi.customfield.DeleteCustomFieldRequest)) {
       return super.equals(obj);
     }
-    contactsapi.customfield.FieldMask other = (contactsapi.customfield.FieldMask) obj;
+    contactsapi.customfield.DeleteCustomFieldRequest other = (contactsapi.customfield.DeleteCustomFieldRequest) obj;
 
     boolean result = true;
-    result = result && getPathsList()
-        .equals(other.getPathsList());
+    result = result && getId()
+        .equals(other.getId());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -195,78 +169,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getPathsCount() > 0) {
-      hash = (37 * hash) + PATHS_FIELD_NUMBER;
-      hash = (53 * hash) + getPathsList().hashCode();
-    }
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(byte[] data)
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(java.io.InputStream input)
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static contactsapi.customfield.FieldMask parseDelimitedFrom(java.io.InputStream input)
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static contactsapi.customfield.FieldMask parseDelimitedFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static contactsapi.customfield.FieldMask parseFrom(
+  public static contactsapi.customfield.DeleteCustomFieldRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -278,7 +250,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(contactsapi.customfield.FieldMask prototype) {
+  public static Builder newBuilder(contactsapi.customfield.DeleteCustomFieldRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -293,29 +265,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * Not sure why I can't import this...
-   * </pre>
-   *
-   * Protobuf type {@code contactsapi.customfield.FieldMask}
+   * Protobuf type {@code contactsapi.customfield.DeleteCustomFieldRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:contactsapi.customfield.FieldMask)
-      contactsapi.customfield.FieldMaskOrBuilder {
+      // @@protoc_insertion_point(builder_implements:contactsapi.customfield.DeleteCustomFieldRequest)
+      contactsapi.customfield.DeleteCustomFieldRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_FieldMask_descriptor;
+      return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_DeleteCustomFieldRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_FieldMask_fieldAccessorTable
+      return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_DeleteCustomFieldRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              contactsapi.customfield.FieldMask.class, contactsapi.customfield.FieldMask.Builder.class);
+              contactsapi.customfield.DeleteCustomFieldRequest.class, contactsapi.customfield.DeleteCustomFieldRequest.Builder.class);
     }
 
-    // Construct using contactsapi.customfield.FieldMask.newBuilder()
+    // Construct using contactsapi.customfield.DeleteCustomFieldRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -332,36 +300,31 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      id_ = "";
+
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_FieldMask_descriptor;
+      return contactsapi.customfield.Customfieldschema.internal_static_contactsapi_customfield_DeleteCustomFieldRequest_descriptor;
     }
 
-    public contactsapi.customfield.FieldMask getDefaultInstanceForType() {
-      return contactsapi.customfield.FieldMask.getDefaultInstance();
+    public contactsapi.customfield.DeleteCustomFieldRequest getDefaultInstanceForType() {
+      return contactsapi.customfield.DeleteCustomFieldRequest.getDefaultInstance();
     }
 
-    public contactsapi.customfield.FieldMask build() {
-      contactsapi.customfield.FieldMask result = buildPartial();
+    public contactsapi.customfield.DeleteCustomFieldRequest build() {
+      contactsapi.customfield.DeleteCustomFieldRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public contactsapi.customfield.FieldMask buildPartial() {
-      contactsapi.customfield.FieldMask result = new contactsapi.customfield.FieldMask(this);
-      int from_bitField0_ = bitField0_;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        paths_ = paths_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.paths_ = paths_;
+    public contactsapi.customfield.DeleteCustomFieldRequest buildPartial() {
+      contactsapi.customfield.DeleteCustomFieldRequest result = new contactsapi.customfield.DeleteCustomFieldRequest(this);
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -393,24 +356,18 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof contactsapi.customfield.FieldMask) {
-        return mergeFrom((contactsapi.customfield.FieldMask)other);
+      if (other instanceof contactsapi.customfield.DeleteCustomFieldRequest) {
+        return mergeFrom((contactsapi.customfield.DeleteCustomFieldRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(contactsapi.customfield.FieldMask other) {
-      if (other == contactsapi.customfield.FieldMask.getDefaultInstance()) return this;
-      if (!other.paths_.isEmpty()) {
-        if (paths_.isEmpty()) {
-          paths_ = other.paths_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensurePathsIsMutable();
-          paths_.addAll(other.paths_);
-        }
+    public Builder mergeFrom(contactsapi.customfield.DeleteCustomFieldRequest other) {
+      if (other == contactsapi.customfield.DeleteCustomFieldRequest.getDefaultInstance()) return this;
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -426,11 +383,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      contactsapi.customfield.FieldMask parsedMessage = null;
+      contactsapi.customfield.DeleteCustomFieldRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (contactsapi.customfield.FieldMask) e.getUnfinishedMessage();
+        parsedMessage = (contactsapi.customfield.DeleteCustomFieldRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -439,134 +396,72 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private com.google.protobuf.LazyStringList paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensurePathsIsMutable() {
-      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-        paths_ = new com.google.protobuf.LazyStringArrayList(paths_);
-        bitField0_ |= 0x00000001;
-       }
-    }
+    private java.lang.Object id_ = "";
     /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getPathsList() {
-      return paths_.getUnmodifiableView();
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
-     */
-    public int getPathsCount() {
-      return paths_.size();
-    }
-    /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
-     */
-    public java.lang.String getPaths(int index) {
-      return paths_.get(index);
-    }
-    /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
+     * <code>string id = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getPathsBytes(int index) {
-      return paths_.getByteString(index);
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public Builder setPaths(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePathsIsMutable();
-      paths_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
-     */
-    public Builder addPaths(
+    public Builder setId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  ensurePathsIsMutable();
-      paths_.add(value);
+  
+      id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public Builder addAllPaths(
-        java.lang.Iterable<java.lang.String> values) {
-      ensurePathsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, paths_);
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public Builder clearPaths() {
-      paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The set of field mask paths.
-     * </pre>
-     *
-     * <code>repeated string paths = 1;</code>
-     */
-    public Builder addPathsBytes(
+    public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      ensurePathsIsMutable();
-      paths_.add(value);
+      
+      id_ = value;
       onChanged();
       return this;
     }
@@ -581,39 +476,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:contactsapi.customfield.FieldMask)
+    // @@protoc_insertion_point(builder_scope:contactsapi.customfield.DeleteCustomFieldRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:contactsapi.customfield.FieldMask)
-  private static final contactsapi.customfield.FieldMask DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:contactsapi.customfield.DeleteCustomFieldRequest)
+  private static final contactsapi.customfield.DeleteCustomFieldRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new contactsapi.customfield.FieldMask();
+    DEFAULT_INSTANCE = new contactsapi.customfield.DeleteCustomFieldRequest();
   }
 
-  public static contactsapi.customfield.FieldMask getDefaultInstance() {
+  public static contactsapi.customfield.DeleteCustomFieldRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<FieldMask>
-      PARSER = new com.google.protobuf.AbstractParser<FieldMask>() {
-    public FieldMask parsePartialFrom(
+  private static final com.google.protobuf.Parser<DeleteCustomFieldRequest>
+      PARSER = new com.google.protobuf.AbstractParser<DeleteCustomFieldRequest>() {
+    public DeleteCustomFieldRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FieldMask(input, extensionRegistry);
+      return new DeleteCustomFieldRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<FieldMask> parser() {
+  public static com.google.protobuf.Parser<DeleteCustomFieldRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<FieldMask> getParserForType() {
+  public com.google.protobuf.Parser<DeleteCustomFieldRequest> getParserForType() {
     return PARSER;
   }
 
-  public contactsapi.customfield.FieldMask getDefaultInstanceForType() {
+  public contactsapi.customfield.DeleteCustomFieldRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -1,8 +1,10 @@
 package contactsapi.customfield.server;
 
+import com.google.protobuf.Empty;
 import contactsapi.customfield.CreateCustomFieldRequest;
 import contactsapi.customfield.CustomField;
 import contactsapi.customfield.CustomFieldServiceGrpc;
+import contactsapi.customfield.DeleteCustomFieldRequest;
 import contactsapi.customfield.GetCustomFieldRequest;
 import contactsapi.customfield.ListCustomFieldsRequest;
 import contactsapi.customfield.ListCustomFieldsResponse;
@@ -31,29 +33,31 @@ public class CustomFieldServiceImpl extends CustomFieldServiceGrpc.CustomFieldSe
   @Override
   public void listCustomFields(ListCustomFieldsRequest request, StreamObserver<ListCustomFieldsResponse> responseObserver) {
 
-
     CustomField.Builder customField1Builder = CustomField.newBuilder();
     CustomField.Builder customField2Builder = CustomField.newBuilder();
 
-    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("id")) {
+
+    if (request.getFieldMask().getPathsList().size() == 0 || request.getFieldMask().getPathsList().contains("id")) {
       customField1Builder.setId("3214");
       customField2Builder.setId("8849");
     }
 
-    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("label")) {
+    if (request.getFieldMask().getPathsList().size() == 0 || request.getFieldMask().getPathsList().contains("label")) {
       customField1Builder.setLabel("Favorite Color");
       customField2Builder.setLabel("Favorite day");
     }
 
-    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("name")) {
+    if (request.getFieldMask().getPathsList().size() == 0 || request.getFieldMask().getPathsList().contains("name")) {
       customField1Builder.setName("fav_color");
       customField2Builder.setName("fav_day");
     }
 
-    if (request.getFieldMaskList().size() == 0 || request.getFieldMaskList().contains("type")) {
+    if (request.getFieldMask().getPathsList().size() == 0 || request.getFieldMask().getPathsList().contains("type")) {
       customField1Builder.setType(CustomField.Type.TEXT);
       customField2Builder.setType(CustomField.Type.DATE_TIME);
     }
+
+    customField1Builder.setId("maskCount:" + request.getFieldMask().getPathsCount());
 
     CustomField customField1 = customField1Builder.build();
     CustomField customField2 = customField2Builder.build();
@@ -102,6 +106,12 @@ public class CustomFieldServiceImpl extends CustomFieldServiceGrpc.CustomFieldSe
     responseObserver.onNext(response);
 
     // Complete the RPC call
+    responseObserver.onCompleted();
+  }
+
+  @Override
+  public void deleteCustomField(DeleteCustomFieldRequest request, StreamObserver<Empty> responseObserver) {
+    responseObserver.onNext(Empty.getDefaultInstance());
     responseObserver.onCompleted();
   }
 }

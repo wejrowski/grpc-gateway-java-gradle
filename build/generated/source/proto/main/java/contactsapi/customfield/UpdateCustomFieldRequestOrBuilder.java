@@ -28,15 +28,15 @@ public interface UpdateCustomFieldRequestOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 3;</code>
    */
   boolean hasUpdateMask();
   /**
-   * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 3;</code>
    */
-  contactsapi.customfield.FieldMask getUpdateMask();
+  google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask();
   /**
-   * <code>.contactsapi.customfield.FieldMask update_mask = 3;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 3;</code>
    */
-  contactsapi.customfield.FieldMaskOrBuilder getUpdateMaskOrBuilder();
+  google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
 }
