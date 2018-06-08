@@ -9,12 +9,12 @@ import (
   "github.com/grpc-ecosystem/grpc-gateway/runtime"
   "google.golang.org/grpc"
 
-  gw "./src/main/proto/contactsapi/customfield"
+  customFieldGateway "./src/main/proto/contactsapi/customfield"
+  companyGateway "./src/main/proto/contactsapi/company"
 )
 
 var (
-  // echoEndpoint = flag.String("echo_endpoint", "localhost:9090", "endpoint of YourService")
-  echoEndpoint = flag.String("echo_endpoint", "localhost:50051", "endpoint of YourService")
+  gRpcServer = flag.String("echo_endpoint", "localhost:50051", "endpoint of YourService")
 )
 
 func run() error {
@@ -25,11 +25,15 @@ func run() error {
   mux := runtime.NewServeMux()
   opts := []grpc.DialOption{grpc.WithInsecure()}
 
-  // Swap out func with pb.gw.go FromEndpoint func name
-  err := gw.RegisterCustomFieldServiceHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+  companyErr := companyGateway.RegisterCompanyServiceHandlerFromEndpoint(ctx, mux, *gRpcServer, opts)
+  customFieldErr := customFieldGateway.RegisterCustomFieldServiceHandlerFromEndpoint(ctx, mux, *gRpcServer, opts)
 
-  if err != nil {
-    return err
+  if companyErr != nil {
+    return companyErr
+  }
+
+  if customFieldErr != nil {
+    return customFieldErr
   }
 
   return http.ListenAndServe(":8080", mux)

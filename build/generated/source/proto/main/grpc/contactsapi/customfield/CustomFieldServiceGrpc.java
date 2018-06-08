@@ -175,6 +175,43 @@ public final class CustomFieldServiceGrpc {
      }
      return getUpdateCustomFieldMethod;
   }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getDeleteCustomFieldMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<contactsapi.customfield.DeleteCustomFieldRequest,
+      com.google.protobuf.Empty> METHOD_DELETE_CUSTOM_FIELD = getDeleteCustomFieldMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<contactsapi.customfield.DeleteCustomFieldRequest,
+      com.google.protobuf.Empty> getDeleteCustomFieldMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<contactsapi.customfield.DeleteCustomFieldRequest,
+      com.google.protobuf.Empty> getDeleteCustomFieldMethod() {
+    return getDeleteCustomFieldMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<contactsapi.customfield.DeleteCustomFieldRequest,
+      com.google.protobuf.Empty> getDeleteCustomFieldMethodHelper() {
+    io.grpc.MethodDescriptor<contactsapi.customfield.DeleteCustomFieldRequest, com.google.protobuf.Empty> getDeleteCustomFieldMethod;
+    if ((getDeleteCustomFieldMethod = CustomFieldServiceGrpc.getDeleteCustomFieldMethod) == null) {
+      synchronized (CustomFieldServiceGrpc.class) {
+        if ((getDeleteCustomFieldMethod = CustomFieldServiceGrpc.getDeleteCustomFieldMethod) == null) {
+          CustomFieldServiceGrpc.getDeleteCustomFieldMethod = getDeleteCustomFieldMethod = 
+              io.grpc.MethodDescriptor.<contactsapi.customfield.DeleteCustomFieldRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "contactsapi.customfield.CustomFieldService", "DeleteCustomField"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  contactsapi.customfield.DeleteCustomFieldRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new CustomFieldServiceMethodDescriptorSupplier("DeleteCustomField"))
+                  .build();
+          }
+        }
+     }
+     return getDeleteCustomFieldMethod;
+  }
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -231,6 +268,13 @@ public final class CustomFieldServiceGrpc {
       asyncUnimplementedUnaryCall(getUpdateCustomFieldMethodHelper(), responseObserver);
     }
 
+    /**
+     */
+    public void deleteCustomField(contactsapi.customfield.DeleteCustomFieldRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeleteCustomFieldMethodHelper(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -261,6 +305,13 @@ public final class CustomFieldServiceGrpc {
                 contactsapi.customfield.UpdateCustomFieldRequest,
                 contactsapi.customfield.CustomField>(
                   this, METHODID_UPDATE_CUSTOM_FIELD)))
+          .addMethod(
+            getDeleteCustomFieldMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                contactsapi.customfield.DeleteCustomFieldRequest,
+                com.google.protobuf.Empty>(
+                  this, METHODID_DELETE_CUSTOM_FIELD)))
           .build();
     }
   }
@@ -314,6 +365,14 @@ public final class CustomFieldServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getUpdateCustomFieldMethodHelper(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deleteCustomField(contactsapi.customfield.DeleteCustomFieldRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeleteCustomFieldMethodHelper(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -360,6 +419,13 @@ public final class CustomFieldServiceGrpc {
     public contactsapi.customfield.CustomField updateCustomField(contactsapi.customfield.UpdateCustomFieldRequest request) {
       return blockingUnaryCall(
           getChannel(), getUpdateCustomFieldMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty deleteCustomField(contactsapi.customfield.DeleteCustomFieldRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getDeleteCustomFieldMethodHelper(), getCallOptions(), request);
     }
   }
 
@@ -412,12 +478,21 @@ public final class CustomFieldServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getUpdateCustomFieldMethodHelper(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deleteCustomField(
+        contactsapi.customfield.DeleteCustomFieldRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeleteCustomFieldMethodHelper(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_CUSTOM_FIELD = 0;
   private static final int METHODID_LIST_CUSTOM_FIELDS = 1;
   private static final int METHODID_GET_CUSTOM_FIELD = 2;
   private static final int METHODID_UPDATE_CUSTOM_FIELD = 3;
+  private static final int METHODID_DELETE_CUSTOM_FIELD = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -451,6 +526,10 @@ public final class CustomFieldServiceGrpc {
         case METHODID_UPDATE_CUSTOM_FIELD:
           serviceImpl.updateCustomField((contactsapi.customfield.UpdateCustomFieldRequest) request,
               (io.grpc.stub.StreamObserver<contactsapi.customfield.CustomField>) responseObserver);
+          break;
+        case METHODID_DELETE_CUSTOM_FIELD:
+          serviceImpl.deleteCustomField((contactsapi.customfield.DeleteCustomFieldRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -517,6 +596,7 @@ public final class CustomFieldServiceGrpc {
               .addMethod(getListCustomFieldsMethodHelper())
               .addMethod(getGetCustomFieldMethodHelper())
               .addMethod(getUpdateCustomFieldMethodHelper())
+              .addMethod(getDeleteCustomFieldMethodHelper())
               .build();
         }
       }

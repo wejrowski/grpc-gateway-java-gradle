@@ -421,6 +421,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPDATED_FIELD_NUMBER = 6;
   private volatile java.lang.Object updated_;
   /**
+   * <pre>
+   * TODO: or Timestamp.proto?
+   * </pre>
+   *
    * <code>string updated = 6;</code>
    */
   public java.lang.String getUpdated() {
@@ -436,6 +440,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * TODO: or Timestamp.proto?
+   * </pre>
+   *
    * <code>string updated = 6;</code>
    */
   public com.google.protobuf.ByteString
@@ -1161,6 +1169,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object updated_ = "";
     /**
+     * <pre>
+     * TODO: or Timestamp.proto?
+     * </pre>
+     *
      * <code>string updated = 6;</code>
      */
     public java.lang.String getUpdated() {
@@ -1176,6 +1188,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * TODO: or Timestamp.proto?
+     * </pre>
+     *
      * <code>string updated = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -1192,6 +1208,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * TODO: or Timestamp.proto?
+     * </pre>
+     *
      * <code>string updated = 6;</code>
      */
     public Builder setUpdated(
@@ -1205,6 +1225,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * TODO: or Timestamp.proto?
+     * </pre>
+     *
      * <code>string updated = 6;</code>
      */
     public Builder clearUpdated() {
@@ -1214,6 +1238,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * TODO: or Timestamp.proto?
+     * </pre>
+     *
      * <code>string updated = 6;</code>
      */
     public Builder setUpdatedBytes(
