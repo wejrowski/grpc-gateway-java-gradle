@@ -30,20 +30,37 @@ dependencies {
     compile 'io.grpc:grpc-netty:1.12.0'
     compile 'io.grpc:grpc-protobuf:1.12.0'
     compile 'io.grpc:grpc-stub:1.12.0'
+
+//    protobuf files("/usr/local/include/google/protobuf")
 }
 
 protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:3.5.1-1"
+//        artifact = "com.google.protobuf-java:3.5.1"
     }
     plugins {
         grpc {
             artifact = 'io.grpc:protoc-gen-grpc-java:1.12.0'
+//            artifact = 'com.google.api-client:1.23.0'
+//            artifact = 'com.google.protobuf:3.5.1-1'
         }
     }
     generateProtoTasks {
+//        all().each { task ->
+//            task.builtins {
+//                grpc-gateway {}
+//            }
+//        }
         all()*.plugins {
             grpc {}
         }
     }
+}
+
+// https://docs.gradle.org/current/dsl/org.gradle.api.tasks.JavaExec.html
+// http://mrhaki.blogspot.com/2010/09/gradle-goodness-run-java-application.html
+task runApp(type:JavaExec) {
+    main = 'contactsapi.grpcserver.ContactsApiServer'
+    classpath = sourceSets.main.runtimeClasspath
 }

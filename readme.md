@@ -1,7 +1,7 @@
 ## Get the gateway running
 
 1. Start java server
-```CustomFieldServer.java```
+```gradle -PmainClass=ContactsApiServer runApp``` (or in intellij, run main on ```CustomFieldServer.java```)
 2. Run the go proxy 
 ```go run entry.go```
 3. curl the rest proxy endpoints (below)
@@ -16,7 +16,7 @@
 // Is that by default for default or first values?*
 
 ```
-curl -X POST -d '{"label": "a label", "name": "a name", "type": "DATE_TIME"}' -k http://localhost:8080/v1/customfields
+curl -X POST -d '{"label": "a label", "name": "a name", "type": "DATE_TIME"}' http://localhost:8080/v1/customfields
 ```
 
 Response:
@@ -33,7 +33,7 @@ Response:
 *// TODO: Test params*
 
 ```
-curl -X GET -k http://localhost:8080/v1/customfields/12
+curl -X GET http://localhost:8080/v1/customfields/12
 ```
 
 Response:
@@ -49,7 +49,7 @@ Response:
 *// TODO: Test params*
 
 ```
-curl -X GET -k http://localhost:8080/v1/customfields
+curl -X GET http://localhost:8080/v1/customfields
 ```
 
 Response:
@@ -72,7 +72,7 @@ Response:
 
 ### List fields with mask
 ```
-curl -X GET -k http://localhost:8080/v1/customfields\?field_mask.paths\=id\&field_mask.paths\=name
+curl -X http://localhost:8080/v1/customfields\?field_mask.paths\=id\&field_mask.paths\=name
 ```
 
 Response:
@@ -98,7 +98,7 @@ Response:
 *// NOTE: type also is left out if it's set to TEXT*
 
 ```
-curl -X PATCH -k -d '{"name": "my name"}' http://localhost:8080/v1/customfields/1
+curl -X PATCH -d '{"name": "my name"}' http://localhost:8080/v1/customfields/1
 ```
 
 Response:
@@ -107,6 +107,65 @@ Response:
     "name":"1",
     "label":"Field Label"
 }
+```
+
+### Create Company
+
+```
+curl -X POST -d '{"name": "Jill Shipping Co."}' http://localhost:8080/v1/companies
+```
+
+Response:
+```json
+{
+    "id": "1234",
+    "name":"Jill Shipping Co.",
+    "version":1
+}
+```
+
+### Get Company
+
+```
+curl http://localhost:8080/v1/companies/12
+```
+
+Response:
+```
+{"id":"12","name":"The Biz LLC","version":4}
+```
+
+
+### List Companies
+
+```
+curl http://localhost:8080/v1/companies
+```
+
+Response:
+```
+{"companies":[{"id":"1234","name":"Bob's Builders","version":1},{"id":"4472","name":"Sara's Sandwhich Shop","version":1}]}
+```
+
+
+### Update Company
+
+```
+curl -X PATCH -d '{"name": "Updated Co name."}' http://localhost:8080/v1/companies/1223
+```
+
+Response
+```
+{
+    "id": "1223",
+    "version": 2
+}
+```
+
+### Delete Company
+
+```
+curl -X DELETE http://localhost:8080/v1/companies/1223
 ```
 
 # Original steps to create
